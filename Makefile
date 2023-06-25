@@ -1,4 +1,4 @@
-install: --up --setup-fresh
+install: --up-build --setup-fresh
 
 start: --up setup
 
@@ -6,10 +6,13 @@ stop: --down
 
 setup: --composer-install --artisan-migrate
 
---setup-fresh: composer-install artisan-migrate-fresh
+--setup-fresh: --composer-install --artisan-migrate-fresh
 
 --up:
 	docker-compose up -d
+
+--up-build:
+	docker-compose up --build -d
 
 --down:
 	docker-compose down
