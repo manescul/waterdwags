@@ -7,6 +7,8 @@ Without having any Laravel knowledge this application was a mix of 70% learning 
 The application is built on top of the default Laravel project that is created by default via composer. I did not clean it up not to risk clearing more code than necessary, hence the initial code is still in.
 
 To observe that the app is indeed deferring the persistence step run a few /adddog requests and then call /listdogs. None or less than the added dogs should be returned. The persistence delay is controlled by the **SIMULATION__DB_LONG_PROCESS_TIME_IN_SECONDS** environment variable.
+
+The /listdogs endpoint return size is controlled by **API_LISTDOG_RETURN_LIMIT** anvironment variable and defaults to 30 when this is not set.
  
 ## Requirements
 - Docker
