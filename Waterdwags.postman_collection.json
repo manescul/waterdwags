@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "62055d4d-5f54-4c89-b57d-84f7ab8dc3a2",
+		"name": "Waterdwags",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "adddog dog1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Secret",
+						"value": "dwags-on-the-water",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"dog1\",\n    \"no_legs\": 4,\n    \"fur_length\": 7,\n    \"steals_food_from_the_table\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1/api/adddog",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"adddog"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "adddog dog2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Secret",
+						"value": "dwags-on-the-water",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"dog2\",\n    \"additional legs\": 2,\n    \"fur_length\": 3,\n    \"steals_food_from_the_table\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1/api/adddog",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"adddog"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listdogs g1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Secret",
+						"value": "dwags-on-the-water",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "g1",
+							"type": "default"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1/api/listdogs",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"listdogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listdogs g2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Secret",
+						"value": "dwags-on-the-water",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "g2",
+							"type": "default",
+							"disabled": true
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1/api/listdogs?name=g2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"listdogs"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "g2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listdogs og",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Secret",
+						"value": "dwags-on-the-water",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "g2",
+							"type": "default",
+							"disabled": true
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1/api/listdogs?name=g2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"listdogs"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "g2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
