@@ -4,6 +4,8 @@ start: --up setup
 
 stop: --down
 
+reset: stop start
+
 setup: --composer-install --artisan-migrate
 
 --setup-fresh: --composer-install --artisan-migrate-fresh

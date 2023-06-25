@@ -37,6 +37,10 @@ Use the Postman collection to access some usage examples to add and list the dog
 ### Stop
     make stop
 - Brings down the Docker containers
+ 
+### Reset
+    make reset
+- Stops and starts again the containers to accommodate for changes other than code (Docker image, docker-compose, environment variables)
 
 ### Setup
     make setup

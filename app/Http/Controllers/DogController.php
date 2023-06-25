@@ -75,6 +75,6 @@ class DogController extends Controller
 
     public function limitReturnSize(Builder $dogsQuery)
     {
-        return $dogsQuery->limit(env(API_LISTDOG_RETURN_LIMIT, self::DEFAULT_API_LISTDOG_RETURN_LIMIT));
+        return $dogsQuery->limit(env('API_LISTDOG_RETURN_LIMIT', self::DEFAULT_API_LISTDOG_RETURN_LIMIT));
     }
 }
