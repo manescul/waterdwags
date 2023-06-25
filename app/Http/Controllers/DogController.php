@@ -15,6 +15,7 @@ class DogController extends Controller
     protected const DOG_MANDATORY_FIELDS = [
         self::DOG_NAME,
     ];
+    const DEFAULT_API_LISTDOG_RETURN_LIMIT = 30;
 
     public function addDog(Request $request): Response
     {
@@ -36,6 +37,7 @@ class DogController extends Controller
         if ($name = $request->get('name')) {
             $this->addNameFilter($name, $dogsQuery);
         }
+        $this->limitReturnSize($dogsQuery);
 
         $dogs = $dogsQuery->pluck('data')->toArray();
 
@@ -69,5 +71,10 @@ class DogController extends Controller
         );
 
         return $dogs;
+    }
+
+    public function limitReturnSize(Builder $dogsQuery)
+    {
+        return $dogsQuery->limit(env(API_LISTDOG_RETURN_LIMIT, self::DEFAULT_API_LISTDOG_RETURN_LIMIT));
     }
 }
