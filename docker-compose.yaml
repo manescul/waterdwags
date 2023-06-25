@@ -1,0 +1,51 @@
+version: '3.7'
+services:
+  webserver:
+    image: nginx:1.25
+    container_name: waterdwags_webserver
+    networks:
+      app-network:
+    depends_on:
+      - db
+      - app
+    volumes:
+      - ./:/var/www
+      - ./docker/container/config/nginx:/etc/nginx/conf.d/
+    ports:
+      - "80:80"
+
+  app:
+    build:
+      context: ./docker/dockerfiles/
+      dockerfile: php-8.2-fpm-laravel.dockerfile
+    container_name: waterdwags_app
+    networks:
+      app-network:
+    env_file:
+      - ./docker/container/environment/app.env
+    volumes:
+      - .:/var/www
+    ports:
+      - "9000:9000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  db:
+    image: postgres:15.3
+    container_name: waterdwags_db
+    restart: always
+    env_file:
+      - ./docker/container/environment/postgresql.env
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}" ]
+    networks:
+      app-network:
+        aliases:
+          - db
+    volumes:
+        - ./docker/volumes/postgresql:/var/lib/postgresql/data
+
+networks:
+    app-network:
