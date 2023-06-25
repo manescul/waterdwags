@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::middleware('custom.auth')
+    ->group(function () {
+        Route::post('/adddog', [DogController::class, 'addDog']);
+        Route::post('/listdogs', [DogController::class, 'listDogs']);
+    }
+);
